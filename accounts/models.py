@@ -73,6 +73,13 @@ class User(AbstractBaseUser):
         return self.is_admin
     def has_module_perms(self,app_lable):
         return True
+    def get_role(self):
+        print(self.role)
+        if self.role == 1:
+            user_role = 'Vendor'
+        elif self.role == 2:
+            user_role = 'Customer'
+        return user_role
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True,null=True)

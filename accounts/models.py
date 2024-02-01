@@ -19,6 +19,7 @@ class UserManager(BaseUserManager):
         user.set_password(password)
         user.save(using=self._db)
         return user
+        
     
     def create_superuser(self, first_name, last_name, username, email, password=None):
         user = self.create_user(
@@ -67,6 +68,7 @@ class User(AbstractBaseUser):
 
     objects = UserManager()
 
+
     def __str__(self):
         return self.email
     def has_perm(self,perm,obj=None):
@@ -85,8 +87,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True,null=True)
     profile_picture = models.ImageField(upload_to='users/profile_pictures',blank=True,null=True)
     cover_photo = models.ImageField(upload_to='users/cover_photos',blank=True, null=True)
-    address_line_1 = models.CharField(max_length=50, blank=True,null=True)
-    address_line_2 = models.CharField(max_length=50, blank=True,null=True)
+    address= models.CharField(max_length=250, blank=True,null=True)
     country = models.CharField(max_length=15,blank=True,null=True)
     state = models.CharField(max_length=15,blank=True,null=True)
     city = models.CharField(max_length=15,blank=True,null=True)

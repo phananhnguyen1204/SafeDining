@@ -6,7 +6,7 @@ function initAutoComplete() {
     {
       types: ["geocode", "establishment"],
       //default in this app is "IN" - add your country code
-      componentRestrictions: { country: ["us"] },
+      componentRestrictions: { country: ["us", "in"] },
     }
   );
   // function to specify what should happen when the prediction is clicked

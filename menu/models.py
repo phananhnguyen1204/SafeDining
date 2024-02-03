@@ -32,5 +32,8 @@ class FoodItem(models.Model):
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
   
+  # class Meta:
+  #   unique_together = ['vendor', 'food_title']
+  
   def __str__(self):
     return self.food_title

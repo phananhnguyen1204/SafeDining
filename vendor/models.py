@@ -1,6 +1,7 @@
 from django.db import models
 from accounts.models import User, UserProfile
 from accounts.utils import send_notification
+from 
 
 # Create your models here.
 class Vendor(models.Model):
@@ -35,6 +36,10 @@ class Vendor(models.Model):
           mail_subject = "We're sorry! You are not eligible for publishing your menu on our marketplace"
           send_notification(mail_subject, mail_template, context)
     return super(Vendor, self).save(*args, **kwargs)
+  
+
+class OpeningHour(models.Model):
+  vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE)
     
   
   

@@ -11,4 +11,4 @@ class OpeningHourAdmin(admin.ModelAdmin):
   list_display: ('vendor', 'day', 'from_hour', 'to_hour')
 
 admin.site.register(Vendor, VendorAdmin)
-admin.site.register(OpeningHour)
+admin.site.register(OpeningHour, OpeningHourAdmin)

@@ -19,7 +19,7 @@
 											<div class="menu-itam-holder">
 												
 												<div id="menu-item-list-6272" class="menu-itam-list">
-													<form action="#" method ="POST">
+													<form action="{% url 'place_order' %}" method ="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="row">
                               <div class="form-group col-md-6 col-sm-12 col-lg-6">
@@ -84,7 +84,6 @@
 											<div class="menu-itam-holder">
  												<div id="menu-item-list-6272" class="menu-itam-list">
 													<ul>
-														{% if cart_items %}
                               {% for item in cart_items %}
                               <li id="cart-item-{{item.id}}">
                                 <div class="image-holder"> <img src="{{item.fooditem.image.url}}" alt=""></div>
@@ -103,11 +102,6 @@
                                 </div>
                               </li>
                               {% endfor %}
-														{% else %}
-                              <div class="text-center p-5">
-                                <h3>Cart is empty</h3>
-                              </div>
-														{% endif %}
 													</ul>
 													
 													
@@ -140,7 +134,14 @@
                                 <span id="total">{{grand_total}}</span>
                               </span>
                             </li>
-
+                            <!--Select payment method-->
+                            <h5>SELECT PAYMENT METNOD</h5>
+                            <div class="payment-method">
+                              <label>
+                                <input type="radio" name="payment_method" value="PayPal">
+                                <img src="{% static 'images/PayPal.png'%}" alt="PayPal" width="100">
+                              </label>
+                            </div>
                             <button type="submit" class ="btn btn-danger w-100 p-2 mt-3">PLACE ORDER</button>
                           </ul>
                          </form>

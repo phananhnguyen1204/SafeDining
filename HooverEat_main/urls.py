@@ -29,7 +29,9 @@ urlpatterns = [
     #Cart
     path('cart/',MarketplaceViews.cart, name='cart'),
     #Search
-    path('search/',MarketplaceViews.search, name='search')
+    path('search/',MarketplaceViews.search, name='search'),
+    # Checkout
+    path('checkout/', MarketplaceViews.checkout, name='checkout'),
 
 
 

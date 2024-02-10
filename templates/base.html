@@ -40,7 +40,12 @@
     <script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_API_KEY}}&libraries=places&callback=initAutoComplete" defer></script>
     {% endif %}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id={{ PAYPAL_CLIENT_ID }}&currency=USD"></script>
     <script src ="{% static 'js/custom.js' %}"></script>
+
+
+              
 
     <style>
       body,
